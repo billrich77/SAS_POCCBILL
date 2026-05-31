@@ -1,5 +1,5 @@
 import "./App.css"
-import Preview from "./pages/Preview"
+import Preview from './pages/preview'
 function App() {
     return <Preview/>
 }
