@@ -8,9 +8,20 @@ interface ImageResult {
   reviews: string;
   downloads: string;
 }
+interface AppItem {
+  thumbnail: string;
+  title: string;
+  author: string;
+  rating: number;
+}
+
+interface OrganicResult {
+  items: AppItem[];
+}
 
 interface SerpApiResponse {
   app_highlight: ImageResult;
+  organic_results: OrganicResult[];
 }
 
 function Preview() {
