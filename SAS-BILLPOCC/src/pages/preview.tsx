@@ -1,17 +1,32 @@
 import { useEffect, useState } from "react";
 
-function Preview() {
-  const [data, setData] = useState(null);
+interface ImageResult {
+  thumbnail: string;
+  title: string;
+  author: string;
+  rating: number;
+  reviews: string;
+  downloads: string;
+}
 
-  const API_KEY =
-    "cb78d842a104c3b9581a6e1558d30de49fb8fc1733a57b6b14cdcacedc675f9a";
+interface SerpApiResponse {
+  app_highlight: ImageResult;
+}
+
+function Preview() {
+  // const [data, setData] = useState(null);
+  const [data, setData] = useState<SerpApiResponse | null>(null);
+  // const API_KEY =
+  //   "cb78d842a104c3b9581a6e1558d30de49fb8fc1733a57b6b14cdcacedc675f9a";
 
   useEffect(() => {
-    const serpUrl =
-      "https://serpapi.com/search?engine=google_play&q=brawl+stars&hl=en&api_key=" +
-      API_KEY;
+    // const serpUrl =
+    //   "https://serpapi.com/search?engine=google_play&q=brawl+stars&hl=en&api_key=" +
+    //   API_KEY;
 
-    fetch("https://corsproxy.io/?" + encodeURIComponent(serpUrl))
+    // fetch("https://corsproxy.io/?" + encodeURIComponent(serpUrl))
+     const queryString = new URLSearchParams(params).toString()
+     fetch(`/api/search?${queryString}`)
       .then((res) => res.json())
       .then((result) => setData(result))
       .catch((err) => console.error(err));
