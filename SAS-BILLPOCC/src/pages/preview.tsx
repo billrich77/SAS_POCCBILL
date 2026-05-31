@@ -27,8 +27,15 @@ interface SerpApiResponse {
 function Preview() {
   // const [data, setData] = useState(null);
   const [data, setData] = useState<SerpApiResponse | null>(null);
-  // const API_KEY =
+  // const API_KEY =  
   //   "cb78d842a104c3b9581a6e1558d30de49fb8fc1733a57b6b14cdcacedc675f9a";
+  const params = {
+    engine : "google_play",
+    q : "brawl stars",
+    hl : "en",
+    gl : "us",
+    store : "apps",
+  }
 
   useEffect(() => {
     // const serpUrl =
