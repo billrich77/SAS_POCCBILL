@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import type { CSSProperties } from "react";
 
 interface ImageResult {
   thumbnail: string;
@@ -109,7 +110,7 @@ function Preview() {
 }
 
 
-const styles = {
+const styles: Record<string, CSSProperties> = {
   page: {
     fontFamily: "Arial",
     minHeight: "100vh",
